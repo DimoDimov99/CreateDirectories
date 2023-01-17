@@ -66,8 +66,14 @@ def create_folder(root_dir, subfolders):
 
 
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) == 2 and sys.argv[1] == "help".lower().strip():
         sys.exit(help())
+
+    elif len(sys.argv) != 3:
+        sys.exit(
+            f"{Colors.FAIL}Usage: python3 {PROGRAM_NAME} <directory name> <file.txt>\n'run python3 {PROGRAM_NAME} help' for more info"
+        )
+
     check_if_right_arg()
     create_folder(sys.argv[1], sys.argv[2])
 

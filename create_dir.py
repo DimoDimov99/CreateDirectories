@@ -41,7 +41,7 @@ def store_from_txt_to_list(file):
 
 
 def create_folder(root_dir, subfolders):
-    folder_name = sys.argv[1].strip().title()
+    folder_name = sys.argv[1].strip()  # Free choice of name for the root directory
     main_dir = os.path.join(CURRENT_DIR, folder_name)
     FOLDERS_NAME = store_from_txt_to_list(sys.argv[2])
     try:

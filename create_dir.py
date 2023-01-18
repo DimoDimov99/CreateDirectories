@@ -31,6 +31,12 @@ def store_from_txt_to_list(file):
     try:
         with open(file, "r", encoding="utf8") as f:
             lines = f.readlines()
+            # hanlde a lot of white spaces
+            lines = [line.replace("\n", "") for line in lines]
+            lines = [line for line in lines if line]
+            if len(lines) == 0:
+                # abort folder creation if the provided .txt file has no items
+                sys.exit(f"{Colors.FAIL}Provided file <{file}> is empty!")
             for line in lines:
                 FOLDERS_NAME.append(line.strip())
         return FOLDERS_NAME
